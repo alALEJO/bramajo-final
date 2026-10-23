@@ -1,0 +1,214 @@
+main {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px 16px 60px;
+}
+
+.titulo {
+  width: 100%;
+  max-width: 880px;
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+h1 {
+  font-family: "Cinzel", serif;
+  color: #fff;
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-weight: 900;
+  margin-bottom: 8px;
+}
+
+p {
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.formulario {
+  width: 100%;
+  max-width: 880px;
+  padding: 16px;
+  background: rgba(15, 23, 42, 0.7);
+  border: 1px solid var(--color-border);
+  backdrop-filter: blur(10px);
+  box-shadow: var(--shadow-md);
+}
+
+.bloque {
+  width: 100%;
+  padding: 24px 20px;
+  margin-bottom: 16px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+}
+
+.bloque:last-of-type {
+  margin-bottom: 0;
+}
+
+.bloque h2 {
+  font-family: "Cinzel", serif;
+  color: var(--color-accent);
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 18px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.fila {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+}
+
+.campo {
+  width: 100%;
+  position: relative;
+}
+
+.campo label {
+  display: block;
+  color: var(--color-text-muted);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  margin-bottom: 7px;
+}
+
+.campo input,
+.campo select,
+.campo textarea {
+  width: 100%;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface-2);
+  color: var(--color-text);
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.campo input:focus,
+.campo select:focus,
+.campo textarea:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.18);
+}
+
+.campo input,
+.campo select {
+  height: 44px;
+  padding: 0 14px;
+}
+
+.campo textarea {
+  height: 130px;
+  padding: 14px;
+  resize: vertical;
+  line-height: 1.6;
+}
+
+.campo small {
+  display: block;
+  color: var(--color-text-muted);
+  font-size: 0.75rem;
+  margin-top: 5px;
+}
+
+.input-icono {
+  position: relative;
+  width: 100%;
+}
+
+.input-icono svg {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  width: 16px;
+  height: 16px;
+  transform: translateY(-50%);
+  color: var(--color-text-muted);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.input-icono input,
+.input-icono select {
+  padding-left: 36px;
+}
+
+.campo-descripcion {
+  margin: 0 0 24px;
+}
+
+.campo-descripcion textarea {
+  height: 130px;
+}
+
+.configuracion {
+  margin-bottom: 24px;
+}
+
+.configuracion textarea {
+  height: 140px;
+}
+
+.btn-crear {
+  display: block;
+  width: 100%;
+  max-width: 320px;
+  height: 56px;
+  margin: 24px auto 0;
+  border: none;
+  background: linear-gradient(135deg, var(--color-primary) 0%, #1d4ed8 100%);
+  color: #fff;
+  font-family: "Cinzel", serif;
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: .04em;
+  cursor: pointer;
+  transition: opacity var(--transition), transform var(--transition), box-shadow var(--transition);
+  box-shadow: 0 4px 18px rgba(59, 130, 246, 0.45);
+}
+
+.btn-crear:hover {
+  opacity: 0.92;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(59, 130, 246, 0.58);
+}
+
+@media screen and (min-width: 769px) {
+  main {
+    width: calc(100% - var(--sidebar-w));
+    margin-left: var(--sidebar-w);
+    padding: 36px 40px 60px;
+  }
+
+  .fila {
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+  }
+
+  .fila.equipos {
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+  }
+
+  .fila.fechas {
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    padding: 0 20px;
+  }
+
+  .campo textarea,
+  .campo-descripcion textarea,
+  .configuracion textarea {
+    height: 130px;
+  }
+}

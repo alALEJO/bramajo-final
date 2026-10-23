@@ -1,0 +1,180 @@
+main {
+  width: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 16px 60px;
+  min-height: calc(100vh - 120px);
+}
+
+.gestion_titulo {
+  font-family: "Cinzel", serif;
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  color: #fff;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.gestion_login,
+.gestion_registro {
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  text-align: center;
+  margin-bottom: 28px;
+  max-width: 460px;
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 480px;
+  padding: 32px 28px;
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid var(--color-border);
+  backdrop-filter: blur(12px);
+  box-shadow: var(--shadow-lg);
+  box-sizing: border-box;
+}
+
+.datos {
+  width: 100%;
+  margin-bottom: 18px;
+  text-align: left;
+  box-sizing: border-box;
+}
+
+.datos label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: .04em;
+}
+
+.datos input {
+  width: 100%;
+  box-sizing: border-box;
+  height: 50px;
+  padding: 0 16px;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface-2);
+  color: var(--color-text);
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.datos input::placeholder {
+  color: var(--color-text-muted);
+}
+
+.datos input:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+.input-password {
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.input-password button {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: none;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  transition: color var(--transition);
+}
+
+.input-password button:hover {
+  color: var(--color-accent);
+}
+
+.input-password button svg {
+  width: 18px;
+  height: 18px;
+}
+
+.btn-iniciarS,
+.btn-registrar {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  height: 52px;
+  margin-top: 12px;
+  border: none;
+  background: linear-gradient(135deg, var(--color-primary) 0%, #1d4ed8 100%);
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: .04em;
+  cursor: pointer;
+  transition: opacity var(--transition), transform var(--transition), box-shadow var(--transition);
+  box-shadow: 0 4px 16px rgba(59, 130, 246, 0.4);
+}
+
+.btn-iniciarS:hover,
+.btn-registrar:hover {
+  opacity: 0.92;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(59, 130, 246, 0.55);
+}
+
+#mensajeError {
+  color: var(--color-danger);
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-align: center;
+  min-height: 20px;
+  margin-bottom: 8px;
+}
+
+h3 {
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: var(--color-text-muted);
+  margin-top: 16px;
+  text-align: center;
+}
+
+h3 a,
+#iniciarSesion,
+#Registrarse {
+  color: var(--color-accent);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+h3 a:hover,
+#iniciarSesion:hover,
+#Registrarse:hover {
+  text-decoration: underline;
+}
+
+@media screen and (min-width: 769px) {
+  main {
+    padding: 0 20px;
+  }
+
+  .formulario {
+    padding: 40px 36px;
+  }
+
+  .datos {
+    width: 100%;
+  }
+}

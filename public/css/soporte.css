@@ -1,0 +1,85 @@
+main {
+  width: 100%;
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 32px 16px 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+h1 {
+  font-family: "Cinzel", serif;
+  color: #fff;
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+h2 {
+  font-family: "Cinzel", serif;
+  color: var(--color-accent);
+  font-size: 1rem;
+  font-weight: 700;
+  text-align: center;
+  padding: 24px 0 16px;
+}
+
+.seccionUno,
+.seccionDos,
+.seccionTres {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  padding: 24px;
+  margin-bottom: 16px;
+  box-shadow: var(--shadow-sm);
+  transition: background var(--transition), border-color var(--transition);
+}
+
+.seccionUno:hover,
+.seccionDos:hover,
+.seccionTres:hover {
+  background: var(--color-surface-2);
+  border-color: rgba(59, 130, 246, 0.3);
+}
+
+.seccionUno>p:first-child,
+.seccionDos>p:first-child,
+.seccionTres>p:first-child {
+  font-weight: 700;
+  color: #fff;
+  font-size: 0.95rem;
+  margin-bottom: 10px;
+}
+
+.seccionUno p,
+.seccionDos p,
+.seccionTres p {
+  color: var(--color-text-muted);
+  font-size: 0.88rem;
+  line-height: 1.75;
+  margin-bottom: 8px;
+}
+
+.seccionDos ul {
+  padding-left: 20px;
+  line-height: 1.85;
+  color: var(--color-text-muted);
+  font-size: 0.88rem;
+}
+
+.seccionDos li {
+  margin-bottom: 4px;
+}
+
+@media screen and (min-width: 769px) {
+  main {
+    padding: 40px 28px 60px;
+  }
+
+  .seccionUno,
+  .seccionDos,
+  .seccionTres {
+    padding: 28px 32px;
+  }
+}

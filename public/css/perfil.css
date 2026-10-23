@@ -1,0 +1,200 @@
+main,
+body> :not(header):not(.footer) {
+  
+  width: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 28px 16px 0;
+}
+
+.card {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  min-height: 480px;
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.card__banner {
+  width: 100%;
+  height: 130px;
+  object-fit: cover;
+  filter: brightness(55%) saturate(80%);
+  flex-shrink: 0;
+}
+
+.card__profile {
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid var(--color-primary);
+  top: 80px;
+  left: 20px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
+}
+
+.card__name {
+  position: absolute;
+  top: 88px;
+  left: 122px;
+  right: 16px;
+  font-family: "Cinzel", serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.card__job {
+  position: absolute;
+  top: 116px;
+  left: 125px;
+  font-size: 0.78rem;
+  color: var(--color-accent);
+  font-style: italic;
+}
+
+.card__info {
+  margin-top: 100px;
+  padding: 0 20px;
+  flex: 1;
+}
+
+.card__info p {
+  padding: 6px 0;
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.card__info p:first-child {
+  color: var(--color-text);
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.card__desc {
+  padding: 14px 20px;
+}
+
+.card__desc h2 {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  margin-bottom: 8px;
+}
+
+.card__desc p {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  border-bottom: none;
+  padding: 2px 0;
+}
+
+.card__follow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 20px;
+  border-top: 1px solid var(--color-border);
+  background: rgba(59, 130, 246, 0.05);
+}
+
+.follow__num {
+  display: flex;
+  gap: 24px;
+}
+
+.num {
+  text-align: center;
+}
+
+.num p:first-child {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.num p:last-child {
+  font-size: 0.72rem;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: .04em;
+}
+
+button#botonSeguir {
+  padding: 9px 20px;
+  border: 1px solid var(--color-primary);
+  background: transparent;
+  color: var(--color-primary);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background var(--transition), color var(--transition);
+}
+
+button#botonSeguir:hover {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+@media screen and (min-width: 769px) {
+  .container {
+    padding: 36px 24px 0;
+  }
+
+  .card {
+    max-width: 500px;
+    min-height: 520px;
+  }
+
+  .card__banner {
+    height: 150px;
+  }
+
+  .card__profile {
+    width: 100px;
+    height: 100px;
+    top: 96px;
+  }
+
+  .card__name {
+    top: 106px;
+    left: 136px;
+    font-size: 1.25rem;
+  }
+
+  .card__job {
+    top: 134px;
+    left: 140px;
+  }
+
+  .card__info {
+    margin-top: 110px;
+  }
+
+  .card__info p {
+    font-size: 0.92rem;
+  }
+}

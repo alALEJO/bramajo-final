@@ -1,0 +1,19 @@
+PROBAR BRAMAJO SIN DOCKER
+
+Sirve para probar el sistema en la PC sin instalar Docker ni MySQL.
+Usa el servidor que trae PHP y una copia de la base en SQLite con los mismos datos de prueba.
+En el servidor del instituto se usa Docker con MySQL; esto es solo para probar.
+
+Lo unico que hace falta es PHP 8.2 o mas nuevo. La forma mas facil en Windows es instalar XAMPP
+(no hace falta prender Apache ni MySQL en el panel, solo se usa su PHP).
+
+Windows: doble clic en probar.bat
+Linux o Mac: ./probar.sh
+
+Se abre http://localhost:8000. Usuarios (contrasena Bramajo2026):
+  admin.prueba@bramajo.test   administrador general
+  orga.prueba@bramajo.test    organizador
+  part.prueba@bramajo.test    participante
+
+Lo que hagas queda guardado en datos.db. Para volver a los datos de prueba, borra datos.db.
+Las claves de la carpeta claves son solo de prueba: en el servidor se generan solas.

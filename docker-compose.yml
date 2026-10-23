@@ -1,0 +1,50 @@
+# Bramajo: dos contenedores, la aplicación (Apache + PHP) y la base de datos (MySQL).
+# Las dos imágenes se publican en Docker Hub; el servidor solo las descarga.
+# En casa:      docker compose build && docker compose push
+# En servidor:  docker compose pull && docker compose up -d
+
+services:
+  db:
+    build: ./base_de_datos
+    image: ${DOCKERHUB_USUARIO}/bramajo-db:${VERSION}
+    container_name: bramajo_db
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_CLAVE_ROOT}
+      MYSQL_DATABASE: bramajo
+      DB_CLAVE: ${DB_CLAVE}
+      DB_CLAVE_BACKUP: ${DB_CLAVE_BACKUP}
+      TZ: America/Montevideo
+    volumes:
+      - datos:/var/lib/mysql
+    healthcheck:
+      # Por TCP: mientras MySQL carga los scripts iniciales no acepta conexiones de red.
+      test: ["CMD-SHELL", "mysqladmin ping -h 127.0.0.1 -uroot -p$$MYSQL_ROOT_PASSWORD --silent"]
+      interval: 10s
+      timeout: 5s
+      retries: 30
+
+  app:
+    build: .
+    image: ${DOCKERHUB_USUARIO}/bramajo-web:${VERSION}
+    container_name: bramajo_web
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DB_HOST: db
+      DB_USUARIO: bramajo_app
+      DB_CLAVE: ${DB_CLAVE}
+      NOMBRE_SERVIDOR: ${NOMBRE_SERVIDOR}
+      TZ: America/Montevideo
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - claves:/var/www/bramajo/claves
+
+# El puerto 3306 de MySQL no se publica: solo la aplicación llega a la base, por la red interna de Docker.
+volumes:
+  datos:
+  claves:
